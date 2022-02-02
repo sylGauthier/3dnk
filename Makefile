@@ -23,7 +23,7 @@ $(LIB): $(OBJECTS)
 	$(AR) rcs $@ $^
 
 test/simple: test/simple.c $(LIB)
-	$(CC) -o $@ $< $(CFLAGS) $(shell pkg-config --cflags lib3dasset lib3dnk) $(LDFLAGS) $(shell pkg-config --libs lib3dasset lib3dnk)
+	$(CC) -o $@ $< -I. $(CFLAGS) $(shell pkg-config --cflags lib3dasset) -L. -l3dnk $(LDFLAGS) $(shell pkg-config --libs lib3dasset)
 
 test: $(TESTS)
 

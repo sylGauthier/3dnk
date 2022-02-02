@@ -169,7 +169,7 @@ int main(int argc, char** argv) {
         scene_render(&prog.scene, NULL);
         tdnk_render(&prog.ui.rndr,
                     &prog.ui.ctx,
-                    nk_vec2(2, 2),
+                    nk_vec2(1, 1),
                     NK_ANTI_ALIASING_ON);
     }
     ui_free(&prog.ui);
