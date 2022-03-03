@@ -30,14 +30,14 @@ test: $(TESTS)
 clean:
 	rm -rf $(OBJECTS) $(LIB) $(TESTS)
 
-install: $(LIB) lib$(NAME).pc
+install: $(LIB) $(NAME).pc
 	mkdir -p $(PREFIX)/$(INCLUDEDIR) $(PREFIX)/$(LIBDIR)/pkgconfig $(PREFIX)/bin
 	cp $(NAME).h nuklear.h $(PREFIX)/$(INCLUDEDIR)
 	cp $(LIB) $(PREFIX)/$(LIBDIR)
-	cp lib$(NAME).pc $(PREFIX)/$(LIBDIR)/pkgconfig
+	cp $(NAME).pc $(PREFIX)/$(LIBDIR)/pkgconfig
 
-.PHONY: lib$(NAME).pc
-lib$(NAME).pc:
+.PHONY: $(NAME).pc
+$(NAME).pc:
 	printf 'prefix=%s\nincludedir=%s\nlibdir=%s\n\nName: %s\nDescription: %s\nVersion: %s\nCflags: %s\nLibs: %s\nRequires: %s' \
 		'$(PREFIX)' \
 		'$${prefix}/$(INCLUDEDIR)' \
